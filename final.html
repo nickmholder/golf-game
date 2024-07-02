@@ -1,0 +1,212 @@
+<script>
+    /* 
+    I tried to set up some functions to decrease the amount of code that was written twice.
+    I tried to write a function for the for loops within the whatIsAge function but to no avail. I couldn't figure out how to set it up without creating another array.
+    */
+
+    //Array user is inputting
+    var arr = [];
+
+    function fourUnder(text) {
+        let data = new Blob([text], { type: "text/plain" });
+        let textFile = window.URL.createObjectURL(data);
+        return text; // Return the text content
+    }
+
+    let fileContent = fourUnder("8;8;9;7;5;7;8;5;8");
+
+    let fourUnderTxt = fileContent.split(";");
+
+    for (let c = 0; c < fourUnderTxt.length; c++) {
+        fourUnderTxt[c] = parseInt(fourUnderTxt[c]);
+    }
+
+    //.txt files, I can't get JS to read this on my local machine due to "CORS policy"
+    var scoreAge = {
+        underFour: fourUnderTxt,
+        fiveToSeven: [7, 7, 8, 6, 5, 6, 7, 5, 10],
+        eightToEleven: [6, 5, 6, 5, 4, 5, 5, 4, 5],
+        twelveToFifteen: [5, 4, 4, 4, 3, 4, 3, 3, 4],
+        overSixteen: [4, 3, 3, 3, 2, 3, 2, 3, 3],
+    }
+
+
+
+
+    //A function that displays the users name and age at the top, before their 9 holes.
+    function nameIs() {
+        document.write("Family Fun Miniature Golf Park <br/>");
+        document.write(name + ", age " + age + ", had a score of: </br>")
+        document.write("<br/>");
+    }
+
+    //A function that filters the users age to the appropriate if statement, and then displays wether they got over par, par, or under par.
+    function whatIsAge() {
+        if (age <= 4 && age >= 1) { //Age 1 to 4
+            for (var c = 0; c < arr.length; c++) { //This for loop takes the score of your hole, and sees if its over, under, or par
+                if (arr[c].score > scoreAge.underFour[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Over Par");
+                    document.write("<br/>");
+                }
+
+                else if (arr[c].score < scoreAge.underFour[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is Under Par");
+                    document.write("<br/>");
+                }
+                else if (arr[c].score == scoreAge.underFour[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is Par");
+                    document.write("<br/>");
+                }
+            }
+            document.write("<br/>");
+        }
+
+        else if (age >= 5 && age <= 7) { //Age 5 to 7
+
+            for (var c = 0; c < arr.length; c++) {
+                if (arr[c].score > scoreAge.fiveToSeven[c]) { //This for loop takes the score of your hole, and sees if its over, under, or par
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Over Par");
+                    document.write("<br/>");
+                }
+
+                else if (arr[c].score < scoreAge.fiveToSeven[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Under Par");
+                    document.write("<br/>");
+                }
+                else if (arr[c].score == scoreAge.fiveToSeven[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is Par");
+                    document.write("<br/>");
+                }
+            }
+            document.write("<br/>");
+
+        }
+
+        else if (age >= 8 && age <= 11) { //Age 8 to 11
+            for (var c = 0; c < arr.length; c++) {
+                if (arr[c].score > scoreAge.eightToEleven[c]) { //This for loop takes the score of your hole, and sees if its over, under, or par
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Over Par");
+                    document.write("<br/>");
+                }
+
+                else if (arr[c].score < scoreAge.eightToEleven[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Under Par");
+                    document.write("<br/>");
+                }
+                else if (arr[c].score == scoreAge.eightToEleven[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is Par");
+                    document.write("<br/>");
+                }
+            }
+            document.write("<br/>");
+
+        }
+
+        else if (age >= 12 && age <= 15) { //Age 12 to 15
+            for (var c = 0; c < arr.length; c++) {
+                if (arr[c].score > scoreAge.twelveToFifteen[c]) { //This for loop takes the score of your hole, and sees if its over, under, or par
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Over Par");
+                    document.write("<br/>");
+                }
+
+                else if (arr[c].score < scoreAge.twelveToFifteen[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Under Par");
+                    document.write("<br/>");
+                }
+                else if (arr[c].score == scoreAge.twelveToFifteen[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is Par");
+                    document.write("<br/>");
+                }
+            }
+            document.write("<br/>");
+
+        }
+
+        else if (age >= 16) {
+            for (var c = 0; c < arr.length; c++) { //Age 16 or older
+                if (arr[c].score > scoreAge.overSixteen[c]) { //This for loop takes the score of your hole, and sees if its over, under, or par
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Over Par");
+                    document.write("<br/>");
+                }
+
+                else if (arr[c].score < scoreAge.overSixteen[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is a Under Par");
+                    document.write("<br/>");
+                }
+                else if (arr[c].score == scoreAge.overSixteen[c]) {
+                    document.write(arr[c].score + " on hole " + arr[c].hole + " which is Par");
+                    document.write("<br/>");
+                }
+            }
+            document.write("<br/>");
+
+        }
+    }
+
+    //This function filters the age again, and depending on age will display the proper information.
+    function shotScore() {
+
+        if (age <= 4 && age >= 1) {
+
+            nameIs();
+            whatIsAge();
+        }
+
+        else if (age >= 5 && age <= 7) {
+
+            nameIs();
+            whatIsAge();
+        }
+
+        else if (age >= 8 && age <= 11) {
+            nameIs();
+            whatIsAge();
+        }
+
+        else if (age >= 12 && age <= 15) {
+            nameIs();
+            whatIsAge();
+        }
+
+        else if (age >= 16) {
+            nameIs();
+            whatIsAge();
+        }
+
+    }
+
+
+    //Main part of the program
+    while (age != 0 || isNaN(age)) { // While age doesn't = 0, the program will continue to collect and sort data the user is inputting.
+        do { //Did a do-while loop so they had to input an actual number
+            var age = prompt("What is the players age? If there are no more users, enter 0 for the age."); //Asking user for age
+            if (isNaN(age)) {
+                alert("That is not a valid number")
+            }
+        } while (isNaN(age));
+
+        if (age >= 1) { //Age needs to be greater than 0 for the program to run
+            var name = prompt("What is the players name whose age is " + age);
+
+            var size = 9;
+
+            for (c = 0; c < size; c++) {
+                do { //Another do-while loop for the same reason as above
+                    value = parseInt(prompt("What is the score on hole " + (c + 1)));
+
+                    if (isNaN(value)) {
+                        alert("That is not a valid number")
+                    }
+                } while (isNaN(value));
+
+                arr[c] = { // I set up an array that will keep count of the hole plus the score on that exact hole
+                    hole: c + 1,
+                    score: value,
+                };
+            }
+        }
+
+        shotScore();
+
+    }
+</script>
